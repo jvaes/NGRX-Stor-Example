@@ -10,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-  todos;
+  todos: any[];
 
   constructor(private store: Store<ITaskingState>) {
-    this.todos = this.store.select<ITaskingState>('tasking');
+    const taskingStore = this.store.select<ITaskingState>('tasking');
+
+    taskingStore.subscribe((state: ITaskingState) => {
+      if (state) {
+        this.todos = state.todos;
+      }
+    });
   }
 
   addTodo(input) {

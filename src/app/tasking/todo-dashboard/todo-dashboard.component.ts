@@ -1,7 +1,7 @@
 import { CLEAR_TODOS } from './../actions';
 import { Store } from '@ngrx/store';
 import { ITaskingState } from './../store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todo-dashboard',

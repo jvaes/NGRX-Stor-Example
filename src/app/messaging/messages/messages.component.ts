@@ -10,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent {
-  newMessages;
+  newMessages: number;
 
   constructor(private store: Store<IMessagingState>) {
-    this.newMessages = store.select<IMessagingState>('messaging');
+    const messagingStore = store.select<IMessagingState>('messaging');
+
+    messagingStore.subscribe((state: IMessagingState) => {
+      if (state) {
+        this.newMessages = state.newMessages;
+      }
+    });
   }
 
   increment() {
