@@ -1,4 +1,3 @@
-import { DECREMENT, INCREMENT, RESET, AppState } from './counter';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 import { Component } from '@angular/core';
